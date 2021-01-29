@@ -118,17 +118,17 @@ echo '<br><br>';
 //Créer un tableau pour les mois de l'année et affiché tous les mois de Janvier à Décembre
 //modifier et/ou remplacer les éléments ci-dessous
 echo "8.Les mois depuis le debut de l'annee : <br>";
-$mois = [];
-for ($i = 0; $i < 0; $i) {
-    echo '';
+$mois = ["janvier","fevrier","mars","avril","mai","juin","juillet","aout","septembre","octobre","novembre","decembre"];
+for ($i = 0; $i < count($mois); $i++) {
+    echo $mois[$i] . " ";
 }
 echo '<br><br>';
 
 //Afficher les mois de la fin de l'année jusqu'au début de l'année
 //modifier et/ou remplacer les éléments ci-dessous
 echo "9.Les mois depuis la fin de l'annee : <br>";
-for ($i = 0; $i < 0; $i) {
-    echo '';
+for ($i = count($mois) - 1; $i >= 0; $i--) {
+    echo $mois[$i] . ' ';
 }
 echo '<br><br>';
 
@@ -156,15 +156,35 @@ $college = array(
   ),
 );
 
+
+
 echo '10.Les eleves du college : <br>';
 //ajoutez votre code ici
+foreach($college as $classe){
+    foreach($classe as $eleve){
+        echo $eleve["Nom"] . " " . $eleve["Prenom"] . "<br>";
+    }
+}
 echo '<br><br>';
 
 //----------------------------------------
 //Afficher le nom et prénoms des élèves de ce collège
 //reprenez le tableau ci-dessus, ajoutez des éléves pour la classe de troisième et réaffichez tout
+
 echo '11.Les eleves du college (avec les nouveaux arrivants): <br>';
 //ajoutez votre code ici
+$college["troisieme"] = array(
+    array('Nom' => 'faezf', 'Prenom' => 'dazd'),
+    array('Nom' => 'faz', 'Prenom' => 'sqdq'),
+    array('Nom' => 'fezrf', 'Prenom' => 'fdsfds'),
+    array('Nom' => 'gre', 'Prenom' => 'zfeezf'),
+    array('Nom' => 'aez', 'Prenom' => 'fzefze'),
+);
+foreach($college as $classe){
+    foreach($classe as $eleve){
+        echo $eleve["Nom"] . " " . $eleve["Prenom"] . "<br>";
+    }
+}
 echo '<br><br>';
 
 //----------------------------------------
@@ -206,6 +226,20 @@ $videotheque = array(
 
 echo '12.Mes films : <br>';
 //ajoutez votre code ici
+foreach($videotheque as $film){
+    foreach($film as $keys => $items){
+        echo $keys . ": ";
+        if(is_array($items)){
+            foreach($items as $item){
+                echo $item . " ";
+            }
+        }
+        else{
+            echo $items;
+        }
+        echo "<br>";
+    }
+}
 echo '<br><br>';
 
 //----------------------------------------
@@ -213,7 +247,47 @@ echo '<br><br>';
 //reprenez le tableau ci-dessus, ajoutez-y 3 de vos films préférés avec les mêmes
 //d'informations (nom, date, realisateur, acteurs) et en plus de ces informations
 //rajoutez un synopsis
-
+array_push($videotheque,    array(
+    'nom' => 'nfioze',
+    'date' => 1220,
+    'realisateur' => 'ra raz',
+    'acteurs' => array(
+        'fzefez daz','fsdsdf reggre','hrrht juyjut','kiuik J. etrret','E.G. fsdsdf',
+    ),
+));
+array_push($videotheque,    array(
+    'nom' => 'nfioze',
+    'date' => 1220,
+    'realisateur' => 'ra raz',
+    'acteurs' => array(
+        'fzefez daz','fsdsdf reggre','hrrht juyjut','kiuik J. etrret','E.G. fsdsdf',
+    ),
+));
+array_push($videotheque,    array(
+    'nom' => 'nfioze',
+    'date' => 1220,
+    'realisateur' => 'ra raz',
+    'acteurs' => array(
+        'fzefez daz','fsdsdf reggre','hrrht juyjut','kiuik J. etrret','E.G. fsdsdf',
+    ),
+));
+for($i = 0; $i< count($videotheque);$i++){
+    $videotheque[$i]["synopsis"] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit.";
+}
 echo '13.Mes films : <br>';
 //ajoutez votre code ici
+foreach($videotheque as $film){
+    foreach($film as $keys => $items){
+        echo $keys . ": ";
+        if(is_array($items)){
+            foreach($items as $item){
+                echo $item . " ";
+            }
+        }
+        else{
+            echo $items;
+        }
+        echo "<br>";
+    }
+}
 echo '<br><br>';
